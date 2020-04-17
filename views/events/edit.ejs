@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<h4 class=" black white-text">edit post:</h4>
+<div class="row">
+  <div id="users" class="col s12">
+    <div class="card black">
+      <div class="card-content white-text">
+        <div class="card-action">
+<form action="/events/<%= posts.id %>?_method=PUT" method="POST">
+    <input type="text" name="text" class="white black-text">
+    <button class="btn red white-text">edit post</button>
+  </form>
+  <%- include('../partials/footer') %>
