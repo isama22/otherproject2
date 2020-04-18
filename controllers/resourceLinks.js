@@ -47,41 +47,30 @@ function updatePost(req, res) {
 );
 }
 
-// function addComment (req, res) {
-//   Post.findById(req.params.id, function(err, post) {
-//     post.comment.push(req.body)
-//     post.save(function(err) {
-//       res.redirect('/resourceLinks')
-//     })
-//   })
-//   }
 
-// function addComment(req, res) {
-//   const comment = req.body
-//   Post.findById({_id:req.params.id}, (err, post) => {
-//     console.log('11111', req.params.id);
-//     post.comments.push(comment)
-//   })
-//   comment.save(function (err, comments) {
-//     console.log('!!!! last added comment', comments);
-//     res.redirect('/resourceLinks');
-//   });
-// }
-const addComment = (req, res) => {
-Post.findById(req.params.id, function(err, posts) {
-
-    post.comments.push(req.body);
-    post.save(function(err) {
-      res.redirect('/resourceLinks')
-    })
-  }
-)
+function addComment(req, res) {
+  console.log(req);
+  const comment = req.body
+  Post.findById({_id:req.params.id}, (err, post) => {
+    console.log('11111', req.params.id);
+    post.comments.push(comment)
+    post.save(function (err, comments) {
+      console.log('!!!! last added comment', comments);
+      res.redirect('/resourceLinks');
+    });
+  })
 }
+
+function delComment () {
+
+};
+
   module.exports = {
     index,
     addPost,
     delPost,
     editPost,
     updatePost,
-    addComment
+    addComment,
+    delComment
   };
