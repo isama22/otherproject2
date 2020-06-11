@@ -4,11 +4,13 @@
   <div id="users" class="col s5">
     <% posts.forEach(function(post) { %>
     <div class="black  collection-item">
+      <div class="content">
       <span class="title white-text"><%= post.text %></span>
       <form action="/artists/<%= post._id %>?_method=DELETE" method="POST" class="secondary-content">
         <button type="submit" class="waves-effect waves-teal btn-flat red-text">x</button>
         <a href="/artists/<%= post._id %>/edit"> <em>Edit</em></a>
       </form>
+    </div>
       <div class="section"></div>
       <% post.comments.forEach(function(comment) { %>
       <div class="collection-item white-text col s7 push-s1">

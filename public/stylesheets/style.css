@@ -51,10 +51,18 @@ form {
 }
 
 
-div {
+.content {
     padding: 15px;
 }
 
 .username {
     color: #ef5350;
+}
+
+/* ul {
+    margin-left: 30px;
+} */
+
+#users {
+    margin-left: 30px;
 }
