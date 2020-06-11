@@ -8,9 +8,9 @@
       <span class="title white-text"><%= post.text %></span>
       <form action="/resourceLinks/<%= post._id %>?_method=DELETE" method="POST" class="secondary-content">
         <button type="submit" class="waves-effect waves-teal btn-flat red-text">x</button>
+        <a href="/resourceLinks/<%= post._id %>/edit"> <em>Edit</em></a>
       </form>
       <div class="section"></div>
-      <a href="/resourceLinks/<%= post._id %>/edit"> <em>Edit</em></a>
       <% post.comments.forEach(function(comment) { %>
       <div class="collection-item white-text col s7 push-s1">
         <span class="black title"><%= comment.text %></span>

@@ -4,11 +4,13 @@ function index(req, res, next) {
   Post.find({
     category:'posts'
   })
+  .populate('user')
     .exec(function (err, posts) {
       //console.log('!!!!! all posts', posts);
       if (err) return next(err);
       res.render('posts/index', {
         posts,
+        name: req.query.name,
         user: req.user
       });
     });
@@ -48,10 +50,24 @@ function updatePost(req, res) {
 );
 }
 
+function addComment(req, res) {
+  console.log(req);
+  const comment = req.body
+  Post.findById({_id:req.params.id}, (err, post) => {
+    // console.log('11111', req.params.id);
+    post.comments.push(comment)
+    post.save(function (err, comments) {
+      // console.log('!!!! last added comment', comments);
+      res.redirect('/posts');
+    });
+  })
+}
+
 module.exports = {
   index,
   addPost,
   delPost,
   editPost,
-  updatePost
+  updatePost,
+  addComment
 }

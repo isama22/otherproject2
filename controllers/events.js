@@ -53,10 +53,25 @@ Post.findByIdAndUpdate(req.params.id, req.body, (err, posts) => {
 }
 );
 }
+
+function addComment(req, res) {
+  console.log(req);
+  const comment = req.body
+  Post.findById({_id:req.params.id}, (err, post) => {
+    console.log('11111', req.params.id);
+    post.comments.push(comment)
+    post.save(function (err, comments) {
+      console.log('!!!! last added comment', comments);
+      res.redirect('/events');
+    });
+  })
+}
+
 module.exports = {
     index,
     addPost,
     delPost,
     editPost,
-    updatePost
+    updatePost,
+    addComment
 };

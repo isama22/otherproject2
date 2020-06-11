@@ -12,4 +12,6 @@ function isLoggedIn(req, res, next) {
 router.delete('/:id', isLoggedIn, techniquesCtrl.delPost);
 router.get('/:id/edit', isLoggedIn, techniquesCtrl.editPost);
 router.put('/:id', techniquesCtrl.updatePost)
+router.post('/:id/comment', isLoggedIn, techniquesCtrl.addComment);
+
 module.exports = router;

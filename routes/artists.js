@@ -13,4 +13,6 @@ router.post('/', isLoggedIn, artistsCtrl.addPost);
 router.delete('/:id', isLoggedIn, artistsCtrl.delPost);
 router.get('/:id/edit', isLoggedIn, artistsCtrl.editPost);
 router.put('/:id', artistsCtrl.updatePost)
+router.post('/:id/comment', isLoggedIn, artistsCtrl.addComment);
+
 module.exports = router;
