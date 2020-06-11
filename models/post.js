@@ -15,7 +15,8 @@ const postSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        enum: ['mainPage', 'techniques', 'events', 'artists', 'resourceLinks', 'posts']
+        enum: [ //'mainPage', 
+        'techniques', 'events', 'artists', 'resourceLinks', 'posts']
     },
     user: {
         type: Schema.Types.ObjectId,

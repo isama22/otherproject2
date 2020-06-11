@@ -1,14 +1,31 @@
 <%- include('../partials/header') %>
-
-<h4 class=" black white-text">edit link:</h4>
+<style>
+  body {
+    background-image: url(https://i.imgur.com/fhuJ10w.png);
+    background-size: 100%;
+}
+.card-content {
+    background-image: url(https://i.postimg.cc/KzcGjjgr/Screen-Shot-2020-04-16-at-6-01-33-PM.png);
+}
+h4 {
+  width: 7%;
+  font-weight: bolder;
+}
+</style>
+<h4 class="white black-text">edit:</h4>
 <div class="row">
   <div id="users" class="col s12">
     <div class="card black">
       <div class="card-content white-text">
         <div class="card-action">
-<form action="/resourceLinks/<%= posts.id %>?_method=PUT" method="POST">
-    <input type="text" name="text" class="white black-text">
-    <button class="btn red white-text">edit post</button>
-  </form>
-  <%- include('../partials/footer') %>
+          <form action="/resourceLinks/<%= posts.id %>?_method=PUT" method="POST">
+            <input type="text" name="text" class="white black-text">
+            <button class="red darken-4 white-text">edit post</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<%- include('../partials/footer') %>

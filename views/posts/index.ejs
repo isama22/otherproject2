@@ -1,34 +1,32 @@
 <%- include('../partials/header') %>
+<div class="section"></div>
 <div class="row">
-  <div id="users" class="col s12">
-    <div class="card black">
-      <div class="card-content white-text">
-        <ul class="collection">
-          <% posts.forEach(function(post) { %>
-          <li class="collection-item  text-darken-2">
-            <span class="title black-text"><%= post.text %></span>
-            <!-- //make x button delete the post it's attatched to  -->
-            <form action="/posts/<%= post._id %>?_method=DELETE" method="POST" class="secondary-content">
-
-              <button type="submit" class="waves-effect waves-teal btn-flat red-text">x</button>
-            </form>
-              <a href="/posts/<%= post._id %>/edit">Edit</a>
-            <form action="/posts" method="POST">
-              <input type="text" name="text" class="black-text">
-              <button class="waves-effect waves-teal btn-flat">Add comment</button>
-            </form>
-          </li>
-          <% }) %>
-        </ul>
-        <div class="card-action">
-          <form action="/posts" method="POST">
-            <input type="text" name="text" class="black white-text" >
-            <button class="btn red white-text">Add post</button>
-          </form>
-        </div>
+  <div id="users" class="col s5">
+    <% posts.forEach(function(post) { %>
+    <div class="black  collection-item">
+      <span class="title white-text"><%= post.text %></span>
+      <form action="/posts/<%= post._id %>?_method=DELETE" method="POST" class="secondary-content">
+        <button type="submit" class="waves-effect waves-teal btn-flat red-text">x</button>
+      </form>
+      <div class="section"></div>
+      <a href="/posts/<%= post._id %>/edit"> <em>Edit</em></a>
+      <% post.comments.forEach(function(comment) { %>
+      <div class="collection-item white-text col s7 push-s1">
+        <span class="black title"><%= comment.text %></span>
       </div>
+      <% }) %>
+      <form action="/posts/<%= post._id %>/comment" method="POST" class="black white-text">
+        <input type="text" name="text" class="black-text">
+        <button class="waves-effect waves-teal btn-flat">Add comment</button>
+      </form>
+    </div>
+    <div class="section"></div>
+    <% }) %>
+    <div class="card-action">
+      <form action="/posts" method="POST">
+        <input type="text" name="text" class="black white-text">
+        <button class="btn red white-text">Add post</button>
+      </form>
     </div>
   </div>
-</div>
-</div>
-<%- include('../partials/footer') %>
+  <%- include('../partials/footer') %>

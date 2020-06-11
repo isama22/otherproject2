@@ -2,6 +2,7 @@ body {
     background-image: url(https://i.imgur.com/fhuJ10w.png);
     background-size: 100%;
 }
+
 /* https://i.imgur.com/sNQtOP1.jpg */
 
 /* #background-5 {
@@ -15,9 +16,18 @@ body {
     opacity: 0.9;
 
 }
-.card-content {
+/* .card-content {
     background-image: url(https://i.postimg.cc/KzcGjjgr/Screen-Shot-2020-04-16-at-6-01-33-PM.png);
-}
+} */
+
+h4 {
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  }
+
+/* .collection-item {
+    margin: 60px;
+  } */
 
 /* .card {
     background-color: aquamarine;
