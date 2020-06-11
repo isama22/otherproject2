@@ -15,6 +15,7 @@
       <div class="collection-item white-text col s7 push-s1">
         <span class="black title"><%= comment.text %></span>
       </div>
+      <br><hr><br>
       <% }) %>
       <form action="/techniques/<%= post._id %>/comment" method="POST" class="black white-text">
         <input type="text" name="text" class="black-text">
