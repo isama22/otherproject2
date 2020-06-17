@@ -1,4 +1,4 @@
-# otherproject2
+# Project 2
 Art Forum!
 A site in progress to share artists of interest, techniques, events, and resources. Posts can be made in a main channel or in category channels.
 
