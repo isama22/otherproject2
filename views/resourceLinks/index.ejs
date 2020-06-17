@@ -1,19 +1,21 @@
 <%- include('../partials/header') %>
 
-<h4 class="black-text">Add a Link!</h4>
-<div class="row">
+<h5 class="black-text">Add a Link!</h5>
+<div class="card-content row">
+  <% posts.forEach(function(post) { %>
+  <ul class="  collection-item">
+    <li><a class="title" href="<%= post.text %>"><%= post.text %></a></li>
+    <form action="/resourceLinks/<%= post._id %>?_method=DELETE" method="POST" class="secondary-content">
+      <button type="submit" class="waves-effect waves-teal btn-flat red-text">x</button>
+      <a href="/resourceLinks/<%= post._id %>/edit"><em>Edit</em></a>
+      
+    </form>
+
+  </ul>
+  <div class="section"></div>
+  <hr>
+  <% }) %>
   <div id="users" class="black col s5">
-    <% posts.forEach(function(post) { %>
-    <ul class="  collection-item">
-      <li><a class="title white-text" href="<%= post.text %>"><%= post.text %></a></li>
-      <form action="/resourceLinks/<%= post._id %>?_method=DELETE" method="POST" class="secondary-content">
-        <button type="submit" class="waves-effect waves-teal btn-flat red-text">x</button>
-        <a href="/resourceLinks/<%= post._id %>/edit"><em>Edit</em></a>
-      </form>
-      <br><br><hr>
-    </ul>
-    <div class="section"></div>
-    <% }) %>
     <div class="card-action">
       <form action="/resourceLinks" method="POST">
         <input type="text" name="text" class="black white-text">
